@@ -1,15 +1,17 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "app.py",
-            "use": "@vercel/python"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "app.py"
-        }
-    ]
+  "version": 2,
+  "functions": {
+    "api/**.py": {
+      "runtime": "python3.8" 
+    }
+  },
+  "builds": [
+    {
+      "src": "api/**/*.py",  
+      "use": "@vercel/python"
+    }
+  ],
+  "env": {
+    "MY_ENV_VAR": "value"
+  }
 }
